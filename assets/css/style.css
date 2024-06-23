@@ -183,6 +183,7 @@ body {
 
 /* MEDIA QUERIES */
 
+/* MÓVILES */
 @media (max-width: 576px) {
     .productos {
         grid-template-columns: 1fr;
@@ -205,6 +206,7 @@ body {
     }
 }
 
+/* TABLETS */
 @media (min-width: 577px) and (max-width: 992px) {
     .container {
         grid-template-areas: 
@@ -252,12 +254,26 @@ body {
     }
 }
 
+/* ESCRITORIO */
 @media (min-width: 993px) {
+
+    .container {
+        grid-template-areas:
+            "nav search search search"
+            "nav productos productos productos"
+            "nav productos productos productos"
+            "footer productos productos productos";
+        gap: 0;
+    }
     .nav {
         padding: 10px 10px; /* padding horizontal */
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .logo {
+        padding-top: 20px;
     }
 
     .frase {
@@ -281,14 +297,7 @@ body {
         gap: 40px;
     }
 
-    .container {
-        grid-template-areas:
-            "nav search search search"
-            "nav productos productos productos"
-            "nav productos productos productos"
-            "footer productos productos productos";
-        gap: 0;
-    }
+    
 
     .productos {
         grid-template-columns: repeat(4, 1fr); /* 4 tarjetas por fila */
