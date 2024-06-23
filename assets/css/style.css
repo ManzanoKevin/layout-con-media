@@ -209,7 +209,7 @@ body {
     .container {
         grid-template-areas: 
             "nav nav nav nav"
-            "search frase menutexto menutexto"
+            "search productos productos productos"
             "search productos productos productos"
             "footer footer footer footer";
         grid-template-columns: 1fr 1fr 1fr 1fr;
