@@ -1,0 +1,303 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* LAYOUTS CON GRID */
+.container {
+    display: grid;
+    grid-template-areas: 
+        "nav"
+        "search"
+        "productos"
+        "footer";
+    min-height: 100vh; /* Para que use toda la altura del viewport */
+    width: 100%; 
+}
+
+/* NAV */
+.nav {
+    grid-area: nav;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center; 
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 30px; 
+}
+
+.frase {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0 10px; /* margen a los lados */
+}
+
+.hamburger-menu {
+    width: 25px; /* tamañob menú hamburguesa */
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.hamburger-menu .linea {
+    height: 2px; 
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.menutexto {
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    gap: 10px;
+}
+
+.menutexto992  {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SEARCH */
+.search {
+    grid-area: search;
+    display: flex;
+    flex-direction: column;
+    background: rgb(221, 221, 221);
+    width: 100%;
+    height: 90px;
+    justify-content: center;
+    align-items: center;
+}
+
+.search div p {
+    font-size: 12px; 
+    font-weight: bold;
+}
+
+.search .filtro {
+    width: 100%; 
+    max-width: 400px; 
+    padding: 8px;
+    font-size: 12px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* PRODUCTOS */
+.productos {
+    grid-area: productos;
+    display: grid;
+    gap: 10px; 
+    justify-items: center; 
+    width: 100%; 
+    padding: 10px; 
+}
+
+.productos .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #ccc;
+    padding: 10px; 
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%; /* ancho posible */
+    max-width: 150px; /* ancho max de las tarjetas */
+    height: auto; /* altura auto */
+}
+
+.productos .card img {
+    width: 100%;
+    max-width: 150px; /* max de la imagen */
+    height: auto; /* altura auto */
+    border-radius: 5px;
+}
+
+.productos .card p {
+    margin-bottom: 5px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.boton {
+    padding: 8px 30px; /* padding del botón */
+    font-size: 14px; 
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.boton:hover {
+    background-color: #555; /* Color para hover */
+}
+
+/* FOOTER */
+.footer {
+    grid-area: footer;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; 
+}
+
+.footer i {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.footer p {
+    color: white;
+    font-size: 10px;
+    text-align: center;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 576px) {
+    .productos {
+        grid-template-columns: 1fr;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .menutexto {
+        display: none;
+    }
+
+    .menutexto992 {
+        display: none;
+    }
+
+    .search {
+        height: auto; /* para pantallas pequeñas */
+    }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+    .container {
+        grid-template-areas: 
+            "nav nav nav nav"
+            "search frase menutexto menutexto"
+            "search productos productos productos"
+            "footer footer footer footer";
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 0;
+    }
+
+    .frase {
+        text-align: left; /* pegado izquierda */
+        margin-right: auto; /* mover a izquierda */
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
+
+    .menutexto {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menutexto992 {
+        display: none;
+    }
+
+    .productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .search {
+        grid-area: search;
+        display: flex;
+        flex-direction: column;
+        background: rgb(221, 221, 221);
+        width: 100%;
+        height: auto;
+        justify-content: start;
+        align-items: center;
+    }
+}
+
+@media (min-width: 993px) {
+    .nav {
+        padding: 10px 10px; /* padding horizontal */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .frase {
+        padding-top: 20px;
+    }
+    .hamburger-menu {
+        display: none;
+    }
+
+    .menutexto {
+        display: none;
+    }
+
+    .menutexto992 {
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 80px;
+        gap: 40px;
+    }
+
+    .container {
+        grid-template-areas:
+            "nav search search search"
+            "nav productos productos productos"
+            "nav productos productos productos"
+            "footer productos productos productos";
+        gap: 0;
+    }
+
+    .productos {
+        grid-template-columns: repeat(4, 1fr); /* 4 tarjetas por fila */
+        gap: 20px; /* Espacio entre las tarjetas */
+        padding-top: 20px; 
+        
+    }
+
+    .productos .card {
+        height: auto; /* Para pantllas grandes */
+    }
+}
